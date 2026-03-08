@@ -1,4 +1,5 @@
 let row = document.querySelector("#row")
+let search = document.querySelector("#search")
 let foodSelect = document.querySelector("#foodSelect")
 let cartona = ''
 
@@ -28,6 +29,12 @@ async function callApi(meal) {
                 <img src="${meals[i].image_url}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">${meals[i].title}</h5>
+                    <p><strong>Recipe Id:</strong> ${meals[i].recipe_id}</p>
+
+<p><strong>Publisher:</strong> ${meals[i].publisher}</p>
+
+<p><strong>Social Rank:</strong> ${meals[i].social_rank}</p>
+                 
                  
                     <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
@@ -46,6 +53,10 @@ async function callApi(meal) {
 foodSelect.addEventListener("change", function () {
     callApi(this.value)
 })
+userInput.addEventListener("change", function () {
+    callApi(search.value)
+})
 
 callApi("pizza")
+
 
